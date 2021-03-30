@@ -36,7 +36,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        mysql --host 127.0.0.1 --port 13306 -uroot -proot -e "CREATE DATABASE laravel"
+        mysql --host 127.0.0.1 --port 13306 -uroot -proot
     - name: migration
       run: php artisan migrate
     - name: Execute tests (Unit and Feature tests) via PHPUnit
