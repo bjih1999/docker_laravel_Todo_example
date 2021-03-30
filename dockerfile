@@ -20,5 +20,4 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN chmod 775 -R /var/www/html/laravel_todo
 RUN chown -R $USER:www-data /var/www/html/laravel_todo
 
-
 CMD ["apachectl", "-D", "FOREGROUND"]
