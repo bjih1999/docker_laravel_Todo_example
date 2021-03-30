@@ -38,6 +38,6 @@ jobs:
       run: |
         mysql --host 127.0.0.1 --port 13306 -uroot -proot
     - name: migration
-      run: php artisan migrate
+      run: php artisan migrate --force
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
