@@ -35,7 +35,6 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        sudo service mysql restart
         mysql --127.0.0.1 mysql --port 3306 -uroot -proot -e "CREATE DATABASE laravel"
     - name: migration
       run: php artisan migrate --force
