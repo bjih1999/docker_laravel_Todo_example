@@ -42,6 +42,6 @@ jobs:
         DB_PORT: 3306
         DB_USER: root
         DB_PASSWORD: root
-      run: php artisan migrate --force
+      run: php artisan migrate:install
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
