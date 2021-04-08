@@ -34,7 +34,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        mysql --host localhost mysql --port 3306 -uroot -proot -e "CREATE DATABASE laravel"
+        mysql --host localhost mysql --port 3306 -uroot -h 127.0.0.1 -proot -e "CREATE DATABASE laravel"
     - name: migration
       env:
         DB_CONNECTION: mysql
