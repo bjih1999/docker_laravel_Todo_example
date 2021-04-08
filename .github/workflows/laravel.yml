@@ -33,7 +33,7 @@ jobs:
         mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -proot -e "SHOW DATABASES"
     - name: Copy .env
       run: |
-        php -r "file_exists('.env.ci') || copy('.env.ci', '.env');"
+        php -r "file_exists('.env.ci') || rename('.env.ci', '.env');"
         cat .env.ci
         cat .env
     - name: Install Dependencies
