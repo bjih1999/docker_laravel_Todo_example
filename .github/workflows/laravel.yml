@@ -41,6 +41,7 @@ jobs:
     - name: generate key
       run: |
         php artisan key:generate
+        php artisan serve
         cat .env
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
