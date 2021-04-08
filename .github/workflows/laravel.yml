@@ -16,6 +16,7 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: laravel
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -35,6 +36,12 @@ jobs:
       run: |
         mysql --host localhost mysql --port 3306 -uroot -proot -e "CREATE DATABASE laravel"
     - name: migration
+      env:
+        DB_CONNECTION: mysql
+        DB_DATABASE: laravel
+        DB_PORT: 3306
+        DB_USER: root
+        DB_PASSWORD: root
       run: php artisan migrate --force
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
