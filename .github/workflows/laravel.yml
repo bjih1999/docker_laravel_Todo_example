@@ -27,14 +27,14 @@ jobs:
         php-version: '7.4'
     - uses: actions/checkout@v2
     - name: Copy .env
-      run: cp .env.ci .env
+      run: php -r "file_exists('.env.ci') || copy('.env.ci', '.env');"
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        mysql --host localhost mysql --port 3306 -uroot -h 127.0.0.1 -proot
+        mysql --host localhost mysql --port 3306 -uroot -h 127.0.0.1 -proot1
     - name: migration
       env:
         DB_CONNECTION: mysql
